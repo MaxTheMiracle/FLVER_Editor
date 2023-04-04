@@ -2820,7 +2820,7 @@ namespace FLVER_Editor
             {
                 for (int i = 0; i < v.Tangents.Count; ++i)
                 {
-                    v.Tangents[i] = new Vector4(-v.Tangents[i].X, v.Tangents[i].Y, v.Tangents[i].Z, -v.Tangents[i].W);
+                    v.Tangents[i] = new Vector4(-v.Tangents[i].X, v.Tangents[i].Y, v.Tangents[i].Z, v.Tangents[i].W);
                 }
             }
             ShowInformationDialog("Successfully Mirror model X Tangents");
@@ -2836,7 +2836,7 @@ namespace FLVER_Editor
             {
                 for (int i = 0; i < v.Tangents.Count; ++i)
                 {
-                        v.Tangents[i] = new Vector4(v.Tangents[i].X, -v.Tangents[i].Y, v.Tangents[i].Z, -v.Tangents[i].W);
+                        v.Tangents[i] = new Vector4(v.Tangents[i].X, -v.Tangents[i].Y, v.Tangents[i].Z, v.Tangents[i].W);
                 }
             }
             ShowInformationDialog("Successfully Mirror model Y Tangents");
@@ -2852,7 +2852,7 @@ namespace FLVER_Editor
             {
                 for (int i = 0; i < v.Tangents.Count; ++i)
                 {
-                    v.Tangents[i] = new Vector4(v.Tangents[i].X, v.Tangents[i].Y, -v.Tangents[i].Z, -v.Tangents[i].W);
+                    v.Tangents[i] = new Vector4(v.Tangents[i].X, v.Tangents[i].Y, -v.Tangents[i].Z, v.Tangents[i].W);
                 }
             }
             ShowInformationDialog("Successfully Mirror model Z Tangents");
@@ -2869,7 +2869,7 @@ namespace FLVER_Editor
             {
                 for (int i = 0; i < v.Tangents.Count; ++i)
                 {
-                    v.Tangents[i] = new Vector4(-v.Tangents[i].X, v.Tangents[i].Y, v.Tangents[i].Z, -v.Tangents[i].W);
+                    v.Tangents[i] = new Vector4(v.Tangents[i].X, v.Tangents[i].Y, v.Tangents[i].Z, -v.Tangents[i].W);
                 }
             }
             ShowInformationDialog("Successfully Mirror model W Tangents");
@@ -2889,7 +2889,7 @@ namespace FLVER_Editor
                     v.Tangents[i] = new Vector4(v.Tangents[i].X, -v.Tangents[i].Y, v.Tangents[i].Z, -v.Tangents[i].W);
                 }
             }
-            ShowInformationDialog("Successfully Mirror model W Tangents");
+            ShowInformationDialog("Successfully Mirror Half Y Tangents");
             UpdateMesh();
 
 
@@ -2907,7 +2907,7 @@ namespace FLVER_Editor
                     v.Tangents[i] = new Vector4(v.Tangents[i].X, v.Tangents[i].Y, -v.Tangents[i].Z, -v.Tangents[i].W);
                 }
             }
-            ShowInformationDialog("Successfully Mirror model W Tangents");
+            ShowInformationDialog("Successfully Mirror Half Z Tangents");
             UpdateMesh();
 
 
@@ -2925,7 +2925,7 @@ namespace FLVER_Editor
                     v.Tangents[i] = new Vector4(-v.Tangents[i].X, -v.Tangents[i].Y, -v.Tangents[i].Z, -v.Tangents[i].W);
                 }
             }
-            ShowInformationDialog("Successfully Mirror model W Tangents");
+            ShowInformationDialog("Successfully Mirror Half  W Tangents");
             UpdateMesh();
 
 
