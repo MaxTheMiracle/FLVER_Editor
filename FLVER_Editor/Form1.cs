@@ -2669,7 +2669,7 @@ namespace FLVER_Editor
                 for (int i = 0; i < v.Tangents.Count; ++i)
                 {
                     if (v.UVs[0].X < 1.0f)
-                        v.Tangents[i] = new Vector4(-v.Tangents[i].X, -v.Tangents[i].Y, -v.Tangents[i].Z, v.Tangents[i].W);
+                        v.Tangents[i] = new Vector4(-v.Tangents[i].X, v.Tangents[i].Y, v.Tangents[i].Z, -v.Tangents[i].W);
                 }
             }
             ShowInformationDialog("Successfully fixed model to work with mirrored UVs!");
@@ -2810,6 +2810,125 @@ namespace FLVER_Editor
 
                 public Vector2 Unk14 { get; set; }
             }
+        }
+
+        private void XTangents_CheckedChanged(object sender, EventArgs e)
+        {
+            if (isSettingDefaultInfo) return;
+            UpdateUndoState();
+            foreach (FLVER.Vertex v in flver.Meshes.SelectMany(m => m.Vertices))
+            {
+                for (int i = 0; i < v.Tangents.Count; ++i)
+                {
+                    v.Tangents[i] = new Vector4(-v.Tangents[i].X, v.Tangents[i].Y, v.Tangents[i].Z, -v.Tangents[i].W);
+                }
+            }
+            ShowInformationDialog("Successfully Mirror model X Tangents");
+            UpdateMesh();
+        }
+        
+        private void YTangents_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (isSettingDefaultInfo) return;
+            UpdateUndoState();
+            foreach (FLVER.Vertex v in selectedMeshIndices.SelectMany(i => flver.Meshes[i].Vertices))
+            {
+                for (int i = 0; i < v.Tangents.Count; ++i)
+                {
+                        v.Tangents[i] = new Vector4(v.Tangents[i].X, -v.Tangents[i].Y, v.Tangents[i].Z, -v.Tangents[i].W);
+                }
+            }
+            ShowInformationDialog("Successfully Mirror model Y Tangents");
+            UpdateMesh();
+        }
+
+        private void ZTangents_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (isSettingDefaultInfo) return;
+            UpdateUndoState();
+            foreach (FLVER.Vertex v in selectedMeshIndices.SelectMany(i => flver.Meshes[i].Vertices))
+            {
+                for (int i = 0; i < v.Tangents.Count; ++i)
+                {
+                    v.Tangents[i] = new Vector4(v.Tangents[i].X, v.Tangents[i].Y, -v.Tangents[i].Z, -v.Tangents[i].W);
+                }
+            }
+            ShowInformationDialog("Successfully Mirror model Z Tangents");
+            UpdateMesh();
+
+        }
+
+        private void WTangents_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (isSettingDefaultInfo) return;
+            UpdateUndoState();
+            foreach (FLVER.Vertex v in selectedMeshIndices.SelectMany(i => flver.Meshes[i].Vertices))
+            {
+                for (int i = 0; i < v.Tangents.Count; ++i)
+                {
+                    v.Tangents[i] = new Vector4(-v.Tangents[i].X, v.Tangents[i].Y, v.Tangents[i].Z, -v.Tangents[i].W);
+                }
+            }
+            ShowInformationDialog("Successfully Mirror model W Tangents");
+            UpdateMesh();
+
+        }
+
+        private void HalfYTang_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (isSettingDefaultInfo) return;
+            UpdateUndoState();
+            foreach (FLVER.Vertex v in selectedMeshIndices.SelectMany(i => flver.Meshes[i].Vertices))
+            {
+                for (int i = 0; i < v.Tangents.Count; ++i)
+                {
+                    v.Tangents[i] = new Vector4(v.Tangents[i].X, -v.Tangents[i].Y, v.Tangents[i].Z, -v.Tangents[i].W);
+                }
+            }
+            ShowInformationDialog("Successfully Mirror model W Tangents");
+            UpdateMesh();
+
+
+        }
+
+        private void HalfZTang_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (isSettingDefaultInfo) return;
+            UpdateUndoState();
+            foreach (FLVER.Vertex v in selectedMeshIndices.SelectMany(i => flver.Meshes[i].Vertices))
+            {
+                for (int i = 0; i < v.Tangents.Count; ++i)
+                {
+                    v.Tangents[i] = new Vector4(v.Tangents[i].X, v.Tangents[i].Y, -v.Tangents[i].Z, -v.Tangents[i].W);
+                }
+            }
+            ShowInformationDialog("Successfully Mirror model W Tangents");
+            UpdateMesh();
+
+
+        }
+
+        private void HalfWTang_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (isSettingDefaultInfo) return;
+            UpdateUndoState();
+            foreach (FLVER.Vertex v in selectedMeshIndices.SelectMany(i => flver.Meshes[i].Vertices))
+            {
+                for (int i = 0; i < v.Tangents.Count; ++i)
+                {
+                    v.Tangents[i] = new Vector4(-v.Tangents[i].X, -v.Tangents[i].Y, -v.Tangents[i].Z, -v.Tangents[i].W);
+                }
+            }
+            ShowInformationDialog("Successfully Mirror model W Tangents");
+            UpdateMesh();
+
+
         }
     }
 }

@@ -149,6 +149,11 @@ namespace FLVER_Editor
                         {
                             tangent = getMyV3D(m.Tangents[i]).normalize();
                         }
+
+                        if (uv1.X - uv2.X == -1) // Check if mirrored
+                        {
+                            tangent.X = -tangent.X;
+                        }
                         else
                         {
                             if (m.HasNormals && m.Normals.Count > i)

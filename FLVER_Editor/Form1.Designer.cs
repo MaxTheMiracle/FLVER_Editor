@@ -8,11 +8,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ribbon = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,6 +86,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.dummyPresetsSelector = new System.Windows.Forms.ComboBox();
             this.meshModifiersContainer = new System.Windows.Forms.GroupBox();
+            this.WTangents = new System.Windows.Forms.CheckBox();
+            this.ZTangents = new System.Windows.Forms.CheckBox();
+            this.YTangents = new System.Windows.Forms.CheckBox();
+            this.XTangents = new System.Windows.Forms.CheckBox();
             this.fixMirroredUVsCheckbox = new System.Windows.Forms.CheckBox();
             this.useWorldOriginCheckbox = new System.Windows.Forms.CheckBox();
             this.flipYZAxisCheckbox = new System.Windows.Forms.CheckBox();
@@ -187,7 +191,9 @@
             this.displayMaleBodyTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.displayFemaleBodyTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.solveAllMeshLODsTooltip = new System.Windows.Forms.ToolTip(this.components);
-            this.label17 = new System.Windows.Forms.Label();
+            this.HalfYTang = new System.Windows.Forms.CheckBox();
+            this.HalfZTang = new System.Windows.Forms.CheckBox();
+            this.HalfWTang = new System.Windows.Forms.CheckBox();
             this.ribbon.SuspendLayout();
             this.multiSelectMenu.SuspendLayout();
             this.meshTabPage.SuspendLayout();
@@ -236,7 +242,7 @@
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Name = "ribbon";
             this.ribbon.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.ribbon.Size = new System.Drawing.Size(1034, 24);
+            this.ribbon.Size = new System.Drawing.Size(1036, 24);
             this.ribbon.TabIndex = 0;
             this.ribbon.Text = "menuStrip1";
             this.ribbon.Click += new System.EventHandler(this.DefocusSearchBox);
@@ -488,6 +494,7 @@
             // 
             // autoSaveIntervalSelector
             // 
+            this.autoSaveIntervalSelector.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.autoSaveIntervalSelector.Name = "autoSaveIntervalSelector";
             this.autoSaveIntervalSelector.Size = new System.Drawing.Size(100, 23);
             this.autoSaveIntervalSelector.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AutoSaveIntervalSelectorKeyDown);
@@ -566,6 +573,7 @@
             // 
             // multiSelectMenuTextbox
             // 
+            this.multiSelectMenuTextbox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.multiSelectMenuTextbox.Name = "multiSelectMenuTextbox";
             this.multiSelectMenuTextbox.Size = new System.Drawing.Size(100, 23);
             // 
@@ -575,7 +583,7 @@
             this.meshTabPage.Controls.Add(this.meshPagePanelsContainer);
             this.meshTabPage.Location = new System.Drawing.Point(4, 22);
             this.meshTabPage.Name = "meshTabPage";
-            this.meshTabPage.Size = new System.Drawing.Size(1027, 462);
+            this.meshTabPage.Size = new System.Drawing.Size(1029, 510);
             this.meshTabPage.TabIndex = 2;
             this.meshTabPage.Text = "Mesh";
             this.meshTabPage.UseVisualStyleBackColor = true;
@@ -594,7 +602,7 @@
             this.functionsGroupBox.Controls.Add(this.solveAllBBsButton);
             this.functionsGroupBox.Location = new System.Drawing.Point(9, 5);
             this.functionsGroupBox.Name = "functionsGroupBox";
-            this.functionsGroupBox.Size = new System.Drawing.Size(1008, 63);
+            this.functionsGroupBox.Size = new System.Drawing.Size(1010, 63);
             this.functionsGroupBox.TabIndex = 17;
             this.functionsGroupBox.TabStop = false;
             this.functionsGroupBox.Text = "Functions";
@@ -726,7 +734,7 @@
             // meshPagePanelsContainer.Panel2
             // 
             this.meshPagePanelsContainer.Panel2.Controls.Add(this.meshModifiersContainer);
-            this.meshPagePanelsContainer.Size = new System.Drawing.Size(1014, 389);
+            this.meshPagePanelsContainer.Size = new System.Drawing.Size(1016, 437);
             this.meshPagePanelsContainer.SplitterDistance = 504;
             this.meshPagePanelsContainer.TabIndex = 0;
             // 
@@ -753,8 +761,8 @@
             this.meshPageTablesContainer.Panel2.Controls.Add(this.dummiesTableOKButton);
             this.meshPageTablesContainer.Panel2.Controls.Add(this.label5);
             this.meshPageTablesContainer.Panel2.Controls.Add(this.dummyPresetsSelector);
-            this.meshPageTablesContainer.Size = new System.Drawing.Size(498, 383);
-            this.meshPageTablesContainer.SplitterDistance = 184;
+            this.meshPageTablesContainer.Size = new System.Drawing.Size(498, 431);
+            this.meshPageTablesContainer.SplitterDistance = 207;
             this.meshPageTablesContainer.TabIndex = 12;
             // 
             // meshTable
@@ -778,9 +786,9 @@
             this.meshTable.Name = "meshTable";
             this.meshTable.RowHeadersVisible = false;
             this.meshTable.RowHeadersWidth = 62;
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.meshTable.RowsDefaultCellStyle = dataGridViewCellStyle31;
-            this.meshTable.Size = new System.Drawing.Size(492, 163);
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.meshTable.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.meshTable.Size = new System.Drawing.Size(492, 186);
             this.meshTable.TabIndex = 11;
             this.meshTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MeshTable_CellContentClick);
             this.meshTable.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MeshTable_CellContentDoubleClick);
@@ -897,9 +905,9 @@
             this.dummiesTable.Name = "dummiesTable";
             this.dummiesTable.RowHeadersVisible = false;
             this.dummiesTable.RowHeadersWidth = 62;
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dummiesTable.RowsDefaultCellStyle = dataGridViewCellStyle32;
-            this.dummiesTable.Size = new System.Drawing.Size(492, 171);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dummiesTable.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dummiesTable.Size = new System.Drawing.Size(492, 196);
             this.dummiesTable.TabIndex = 12;
             this.dummiesTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DummiesTable_CellContentClick);
             this.dummiesTable.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DummiesTable_CellContentDoubleClick);
@@ -989,7 +997,13 @@
             // 
             // meshModifiersContainer
             // 
-            this.meshModifiersContainer.Controls.Add(this.label17);
+            this.meshModifiersContainer.Controls.Add(this.HalfWTang);
+            this.meshModifiersContainer.Controls.Add(this.HalfZTang);
+            this.meshModifiersContainer.Controls.Add(this.HalfYTang);
+            this.meshModifiersContainer.Controls.Add(this.WTangents);
+            this.meshModifiersContainer.Controls.Add(this.ZTangents);
+            this.meshModifiersContainer.Controls.Add(this.YTangents);
+            this.meshModifiersContainer.Controls.Add(this.XTangents);
             this.meshModifiersContainer.Controls.Add(this.fixMirroredUVsCheckbox);
             this.meshModifiersContainer.Controls.Add(this.useWorldOriginCheckbox);
             this.meshModifiersContainer.Controls.Add(this.flipYZAxisCheckbox);
@@ -1022,18 +1036,63 @@
             this.meshModifiersContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.meshModifiersContainer.Location = new System.Drawing.Point(0, 0);
             this.meshModifiersContainer.Name = "meshModifiersContainer";
-            this.meshModifiersContainer.Size = new System.Drawing.Size(506, 389);
+            this.meshModifiersContainer.Size = new System.Drawing.Size(508, 437);
             this.meshModifiersContainer.TabIndex = 12;
             this.meshModifiersContainer.TabStop = false;
             this.meshModifiersContainer.Text = "Modifiers";
             // 
+            // WTangents
+            // 
+            this.WTangents.AutoSize = true;
+            this.WTangents.Location = new System.Drawing.Point(270, 314);
+            this.WTangents.Name = "WTangents";
+            this.WTangents.Size = new System.Drawing.Size(85, 17);
+            this.WTangents.TabIndex = 76;
+            this.WTangents.Text = "W Tangents";
+            this.WTangents.UseVisualStyleBackColor = true;
+            this.WTangents.CheckedChanged += new System.EventHandler(this.WTangents_CheckedChanged);
+            // 
+            // ZTangents
+            // 
+            this.ZTangents.AutoSize = true;
+            this.ZTangents.Location = new System.Drawing.Point(183, 314);
+            this.ZTangents.Name = "ZTangents";
+            this.ZTangents.Size = new System.Drawing.Size(81, 17);
+            this.ZTangents.TabIndex = 75;
+            this.ZTangents.Text = "Z Tangents";
+            this.ZTangents.UseVisualStyleBackColor = true;
+            this.ZTangents.CheckedChanged += new System.EventHandler(this.ZTangents_CheckedChanged);
+            // 
+            // YTangents
+            // 
+            this.YTangents.AutoSize = true;
+            this.YTangents.Location = new System.Drawing.Point(96, 314);
+            this.YTangents.Name = "YTangents";
+            this.YTangents.Size = new System.Drawing.Size(81, 17);
+            this.YTangents.TabIndex = 74;
+            this.YTangents.Text = "Y Tangents";
+            this.YTangents.UseVisualStyleBackColor = true;
+            this.YTangents.CheckedChanged += new System.EventHandler(this.YTangents_CheckedChanged);
+            // 
+            // XTangents
+            // 
+            this.XTangents.AutoSize = true;
+            this.XTangents.Location = new System.Drawing.Point(9, 314);
+            this.XTangents.Name = "XTangents";
+            this.XTangents.Size = new System.Drawing.Size(81, 17);
+            this.XTangents.TabIndex = 73;
+            this.XTangents.Text = "X Tangents";
+            this.XTangents.UseVisualStyleBackColor = true;
+            this.XTangents.CheckedChanged += new System.EventHandler(this.XTangents_CheckedChanged);
+            // 
             // fixMirroredUVsCheckbox
             // 
             this.fixMirroredUVsCheckbox.AutoSize = true;
-            this.fixMirroredUVsCheckbox.Location = new System.Drawing.Point(9, 309);
+            this.fixMirroredUVsCheckbox.Location = new System.Drawing.Point(9, 346);
             this.fixMirroredUVsCheckbox.Name = "fixMirroredUVsCheckbox";
-            this.fixMirroredUVsCheckbox.Size = new System.Drawing.Size(15, 14);
+            this.fixMirroredUVsCheckbox.Size = new System.Drawing.Size(83, 17);
             this.fixMirroredUVsCheckbox.TabIndex = 71;
+            this.fixMirroredUVsCheckbox.Text = "Half X Tang";
             this.fixMirroredUVsCheckbox.UseVisualStyleBackColor = true;
             this.fixMirroredUVsCheckbox.CheckedChanged += new System.EventHandler(this.FixMirroredUVsCheckboxChecked);
             // 
@@ -1228,7 +1287,7 @@
             // 
             // deleteSelectedButton
             // 
-            this.deleteSelectedButton.Location = new System.Drawing.Point(8, 332);
+            this.deleteSelectedButton.Location = new System.Drawing.Point(9, 378);
             this.deleteSelectedButton.Name = "deleteSelectedButton";
             this.deleteSelectedButton.Size = new System.Drawing.Size(111, 22);
             this.deleteSelectedButton.TabIndex = 10;
@@ -1695,8 +1754,8 @@
             this.materialsTable.Name = "materialsTable";
             this.materialsTable.RowHeadersVisible = false;
             this.materialsTable.RowHeadersWidth = 62;
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.materialsTable.RowsDefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.materialsTable.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.materialsTable.Size = new System.Drawing.Size(468, 394);
             this.materialsTable.TabIndex = 6;
             this.materialsTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MaterialsTableButtonClicked);
@@ -1848,8 +1907,8 @@
             this.texturesTable.Name = "texturesTable";
             this.texturesTable.RowHeadersVisible = false;
             this.texturesTable.RowHeadersWidth = 62;
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.texturesTable.RowsDefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.texturesTable.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.texturesTable.Size = new System.Drawing.Size(536, 394);
             this.texturesTable.TabIndex = 7;
             this.texturesTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TexturesTableButtonClicked);
@@ -1912,8 +1971,8 @@
             this.bonesTable.Name = "bonesTable";
             this.bonesTable.RowHeadersVisible = false;
             this.bonesTable.RowHeadersWidth = 62;
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.bonesTable.RowsDefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.bonesTable.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.bonesTable.Size = new System.Drawing.Size(1021, 456);
             this.bonesTable.TabIndex = 0;
             this.bonesTable.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.BonesTableCellValueChanged);
@@ -1996,7 +2055,7 @@
             this.tabWindow.Location = new System.Drawing.Point(0, 24);
             this.tabWindow.Name = "tabWindow";
             this.tabWindow.SelectedIndex = 0;
-            this.tabWindow.Size = new System.Drawing.Size(1035, 488);
+            this.tabWindow.Size = new System.Drawing.Size(1037, 536);
             this.tabWindow.TabIndex = 1;
             this.tabWindow.SelectedIndexChanged += new System.EventHandler(this.TabWindow_SelectedIndexChanged);
             this.tabWindow.Click += new System.EventHandler(this.DefocusSearchBox);
@@ -2008,7 +2067,7 @@
             this.copyrightStr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.copyrightStr.AutoSize = true;
             this.copyrightStr.ForeColor = System.Drawing.Color.DarkGray;
-            this.copyrightStr.Location = new System.Drawing.Point(860, 30);
+            this.copyrightStr.Location = new System.Drawing.Point(862, 30);
             this.copyrightStr.Name = "copyrightStr";
             this.copyrightStr.Size = new System.Drawing.Size(160, 13);
             this.copyrightStr.TabIndex = 1;
@@ -2019,7 +2078,7 @@
             this.versionStr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.versionStr.AutoSize = true;
             this.versionStr.ForeColor = System.Drawing.Color.DarkGray;
-            this.versionStr.Location = new System.Drawing.Point(783, 30);
+            this.versionStr.Location = new System.Drawing.Point(785, 30);
             this.versionStr.Name = "versionStr";
             this.versionStr.Size = new System.Drawing.Size(45, 13);
             this.versionStr.TabIndex = 2;
@@ -2060,20 +2119,44 @@
             this.meshTabDataTableSelector.TabIndex = 1;
             this.meshTabDataTableSelector.SelectedIndexChanged += new System.EventHandler(this.MeshTabDataTableSelector_SelectedIndexChanged);
             // 
-            // label17
+            // HalfYTang
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(25, 308);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(84, 13);
-            this.label17.TabIndex = 72;
-            this.label17.Text = "Fix Mirrored UVs";
+            this.HalfYTang.AutoSize = true;
+            this.HalfYTang.Location = new System.Drawing.Point(96, 346);
+            this.HalfYTang.Name = "HalfYTang";
+            this.HalfYTang.Size = new System.Drawing.Size(83, 17);
+            this.HalfYTang.TabIndex = 77;
+            this.HalfYTang.Text = "Half Y Tang";
+            this.HalfYTang.UseVisualStyleBackColor = true;
+            this.HalfYTang.CheckedChanged += new System.EventHandler(this.HalfYTang_CheckedChanged);
+            // 
+            // HalfZTang
+            // 
+            this.HalfZTang.AutoSize = true;
+            this.HalfZTang.Location = new System.Drawing.Point(183, 346);
+            this.HalfZTang.Name = "HalfZTang";
+            this.HalfZTang.Size = new System.Drawing.Size(83, 17);
+            this.HalfZTang.TabIndex = 78;
+            this.HalfZTang.Text = "Half Z Tang";
+            this.HalfZTang.UseVisualStyleBackColor = true;
+            this.HalfZTang.CheckedChanged += new System.EventHandler(this.HalfZTang_CheckedChanged);
+            // 
+            // HalfWTang
+            // 
+            this.HalfWTang.AutoSize = true;
+            this.HalfWTang.Location = new System.Drawing.Point(270, 346);
+            this.HalfWTang.Name = "HalfWTang";
+            this.HalfWTang.Size = new System.Drawing.Size(87, 17);
+            this.HalfWTang.TabIndex = 79;
+            this.HalfWTang.Text = "Half W Tang";
+            this.HalfWTang.UseVisualStyleBackColor = true;
+            this.HalfWTang.CheckedChanged += new System.EventHandler(this.HalfWTang_CheckedChanged);
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1034, 511);
+            this.ClientSize = new System.Drawing.Size(1036, 559);
             this.Controls.Add(this.searchBox);
             this.Controls.Add(this.copyrightStr);
             this.Controls.Add(this.versionStr);
@@ -2316,6 +2399,12 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.CheckBox useWorldOriginCheckbox;
         private System.Windows.Forms.CheckBox fixMirroredUVsCheckbox;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.CheckBox XTangents;
+        private System.Windows.Forms.CheckBox YTangents;
+        private System.Windows.Forms.CheckBox ZTangents;
+        private System.Windows.Forms.CheckBox WTangents;
+        private System.Windows.Forms.CheckBox HalfYTang;
+        private System.Windows.Forms.CheckBox HalfZTang;
+        private System.Windows.Forms.CheckBox HalfWTang;
     }
 }
